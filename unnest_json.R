@@ -9,16 +9,16 @@ json_data <- fromJSON(file='ea-thesaurus.json')
 
 head(json_data)
 
-json_df <- as.data.frame(json_data)
-dim(json_df) # one giant row!
-head(json_df) # ugh.
-
 # Unlist the fromJSON() output
 json_unlisted <- lapply(json_data, 
                         function(x) {
                           x[sapply(x, is.null)] <- NA
                           unlist(x)
                         })
+
+class(json_unlisted)
+json_unlisted[[1]]
+json_unlisted[[5]]
 
 # Combine our dissected parts of the json file and make it a dataframe
 EAT <- as.data.frame(do.call("rbind", json_unlisted))
