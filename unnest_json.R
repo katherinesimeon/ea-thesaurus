@@ -18,7 +18,7 @@ json_unlisted <- lapply(json_data,
 
 class(json_unlisted)
 json_unlisted[[1]]
-json_unlisted[[5]]
+json_unlisted[[100]]
 
 # Combine our dissected parts of the json file and make it a dataframe
 EAT <- as.data.frame(do.call("rbind", json_unlisted))
